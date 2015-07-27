@@ -13,6 +13,7 @@
 @interface MCSNotificationController ()
 
 @property (nonatomic, strong) NSMutableDictionary *mapNotificationKeyToListener;
+@property (nonatomic, strong) dispatch_queue_t mapQueue;
 
 @end
 
@@ -42,6 +43,7 @@
     _observer = observer;
     _notificationCenter = notificationCenter;
     _mapNotificationKeyToListener = [NSMutableDictionary new];
+    _mapQueue = dispatch_queue_create("com.macoscope.notification-controller.map-queue", NULL);
   }
 
   return self;
@@ -72,12 +74,13 @@
   NSParameterAssert(name);
   NSParameterAssert(block);
 
-  id<NSCopying> key = MCSNotificationKey(name, sender);
-  NSAssert2(!self.mapNotificationKeyToListener[key], @"You shouldn't add observer for notification name: %@ with the same sender: %@ twice!", name, sender);
-
-  self.mapNotificationKeyToListener[key] = [[MCSNotificationListener alloc] initWithQueue:queue block:block];
-
-  [self.notificationCenter addObserver:self selector:@selector(action:) name:name object:sender];
+  dispatch_sync(self.mapQueue, ^{
+    id<NSCopying> key = MCSNotificationKey(name, sender);
+    NSAssert2(!self.mapNotificationKeyToListener[key], @"You shouldn't add observer for notification name: %@ with the same sender: %@ twice!", name, sender);
+    
+    self.mapNotificationKeyToListener[key] = [[MCSNotificationListener alloc] initWithQueue:queue block:block];
+    [self.notificationCenter addObserver:self selector:@selector(action:) name:name object:sender];
+  });
 }
 
 - (void)removeObserverForName:(NSString *)name
@@ -87,10 +90,12 @@
 
 - (void)removeObserverForName:(NSString *)name sender:(nullable id)sender
 {
-  id<NSCopying> key = MCSNotificationKey(name, sender);
-
-  [self.mapNotificationKeyToListener removeObjectForKey:key];
-  [self.notificationCenter removeObserver:self name:name object:sender];
+  dispatch_sync(self.mapQueue, ^{
+    id<NSCopying> key = MCSNotificationKey(name, sender);
+    
+    [self.mapNotificationKeyToListener removeObjectForKey:key];
+    [self.notificationCenter removeObserver:self name:name object:sender];
+  });
 }
 
 
@@ -102,9 +107,13 @@
 
   // observer can be nil, because deallocation of an associated object happens after `dealloc` on the source object is called
   if (observer) {
-    id<NSCopying> key = MCSNotificationKey(notification.name, notification.object);
-    MCSNotificationListener *listener = self.mapNotificationKeyToListener[key];
-    NSAssert2(listener, @"Listener for notification name: %@ with sender: %@ doesn't exist", notification.name, notification.object);
+    __block MCSNotificationListener *listener = nil;
+
+    dispatch_sync(self.mapQueue, ^{
+      id<NSCopying> key = MCSNotificationKey(notification.name, notification.object);
+      listener = self.mapNotificationKeyToListener[key];
+    });
+    NSAssert2(listener, @"Listener for notification name: %@ with sender: %@ doesn't exist!", notification.name, notification.object);
 
     [listener executeWithNotification:notification];
   }

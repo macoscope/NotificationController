@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
+#import <libkern/OSAtomic.h>
+
 #import "MCSNotificationController.h"
 #import "MCSCounter.h"
 
@@ -17,15 +19,21 @@ static NSString * const notificationName =  @"ArbitraryNotification";
 
 __attribute__((overloadable)) static void PostNotification(void);
 __attribute__((overloadable)) static void PostNotification(id object);
+__attribute__((overloadable)) static void PostNotification(id object, NSString *__nonnull name);
 
 __attribute__((overloadable)) static void PostNotification(void)
 {
-  [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+  PostNotification(nil);
 }
 
 __attribute__((overloadable)) static void PostNotification(id object)
 {
-  [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:object];
+  PostNotification(object, notificationName);
+}
+
+__attribute__((overloadable)) static void PostNotification(id object, NSString *name)
+{
+  [[NSNotificationCenter defaultCenter] postNotificationName:name object:object];
 }
 
 @interface MCSNotificationControllerTests : XCTestCase
@@ -89,7 +97,7 @@ __attribute__((overloadable)) static void PostNotification(id object)
 {
   __block NSInteger count = 0;
   NSOperationQueue *queue = [NSOperationQueue mainQueue];
-  XCTestExpectation *expectation = [self expectationWithDescription:@"Works on main queue"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Works on queue"];
 
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
   [notificationController addObserverForName:notificationName sender:nil queue:queue usingBlock:^(NSNotification *note) {
@@ -99,7 +107,7 @@ __attribute__((overloadable)) static void PostNotification(id object)
 
   PostNotification();
 
-  [self waitForExpectationsWithTimeout:0 handler:^(NSError *error) {
+  [self waitForExpectationsWithTimeout:0.1 handler:^(NSError *error) {
     XCTAssertEqual(count, 1);
     XCTAssertNil(error);
   }];
@@ -109,7 +117,7 @@ __attribute__((overloadable)) static void PostNotification(id object)
 {
   __block NSInteger count = 0;
   NSOperationQueue *queue = [NSOperationQueue new];
-  XCTestExpectation *expectation = [self expectationWithDescription:@"Works on main queue"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Works on queue"];
 
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
   [notificationController addObserverForName:notificationName sender:nil queue:queue usingBlock:^(NSNotification *note) {
@@ -119,7 +127,7 @@ __attribute__((overloadable)) static void PostNotification(id object)
 
   PostNotification();
 
-  [self waitForExpectationsWithTimeout:0 handler:^(NSError *error) {
+  [self waitForExpectationsWithTimeout:0.1 handler:^(NSError *error) {
     XCTAssertEqual(count, 1);
     XCTAssertNil(error);
   }];
@@ -140,6 +148,41 @@ __attribute__((overloadable)) static void PostNotification(id object)
 
   PostNotification();
   XCTAssertEqual(count, 1);
+}
+
+- (void)testIsThreadSafe
+{
+  __block int32_t count = 0;
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Thread-safe"];
+
+  __block NSInteger ranQueueCount = 0;
+  const NSInteger accessCount = 500;
+
+  for (NSInteger i = 0; i < accessCount; i++) {
+    dispatch_queue_t queue = i % 2 == 0 ? dispatch_get_main_queue() : dispatch_get_global_queue(0, 0);
+
+    dispatch_async(queue, ^{
+      NSString *name = [@(i) stringValue];
+
+      [notificationController addObserverForName:name usingBlock:^(NSNotification *notification) {
+        OSAtomicIncrement32(&count);
+      }];
+
+      PostNotification(nil, name);
+      [notificationController removeObserverForName:name];
+
+      if (++ranQueueCount == accessCount) {
+        [expectation fulfill];
+      }
+    });
+  }
+
+  [self waitForExpectationsWithTimeout:0.1 handler:^(NSError *error) {
+    XCTAssertEqual(count, accessCount);
+    XCTAssertNil(error);
+  }];
 }
 
 @end
