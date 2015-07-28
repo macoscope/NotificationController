@@ -21,7 +21,7 @@ NSString * const MCSCounterNotificationName = @"MCSCounterNotificationName";
   self = [super init];
   if (self) {
     __weak typeof(self) weakSelf = self;
-    [self.mcs_notificationController addObserverForName:MCSCounterNotificationName usingBlock:^(NSNotification *note) {
+    [self.mcs_notificationController addObserverForName:MCSCounterNotificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {
       weakSelf.count++;
     }];
   }

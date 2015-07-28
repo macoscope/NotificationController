@@ -58,15 +58,6 @@
 #pragma mark - Public
 
 - (BOOL)addObserverForName:(NSString *)name
-                usingBlock:(void (^)(NSNotification *note))block
-{
-  return [self addObserverForName:name
-                           sender:nil
-                            queue:nil
-                       usingBlock:block];
-}
-
-- (BOOL)addObserverForName:(NSString *)name
                     sender:(nullable id)sender
                      queue:(nullable NSOperationQueue *)queue
                 usingBlock:(void (^)(NSNotification *note))block;
@@ -87,11 +78,6 @@
   });
 
   return observerAdded;
-}
-
-- (BOOL)removeObserverForName:(NSString *)name
-{
-  return [self removeObserverForName:name sender:nil];
 }
 
 - (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender

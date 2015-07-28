@@ -46,14 +46,14 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 {
   __block NSInteger count = 0;
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
-  [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *notification) {
+  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
     count++;
   }];
 
   PostNotification();
   XCTAssertEqual(count, 1);
 
-  [notificationController removeObserverForName:notificationName];
+  [notificationController removeObserverForName:notificationName sender:nil];
   PostNotification();
 
   XCTAssertEqual(count, 1);
@@ -137,7 +137,7 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 {
   __block NSInteger count = 0;
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
-  [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *notification) {
+  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
     count++;
   }];
 
@@ -166,12 +166,12 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
     dispatch_async(queue, ^{
       NSString *name = [@(i) stringValue];
 
-      [notificationController addObserverForName:name usingBlock:^(NSNotification *notification) {
+      [notificationController addObserverForName:name sender:nil queue:nil usingBlock:^(NSNotification *notification) {
         OSAtomicIncrement32(&count);
       }];
 
       PostNotification(nil, name);
-      [notificationController removeObserverForName:name];
+      [notificationController removeObserverForName:name sender:nil];
 
       if (++ranQueueCount == accessCount) {
         [expectation fulfill];
@@ -189,9 +189,9 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 {
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
 
-  BOOL result1 = [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+  BOOL result1 = [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {}];
   XCTAssertTrue(result1);
-  BOOL result2 = [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+  BOOL result2 = [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {}];
   XCTAssertFalse(result2);
 }
 
@@ -209,11 +209,11 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 - (void)testInformsAboutSuccessOfRemovingObserverWithoutSender
 {
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
-  [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {}];
 
-  BOOL result1 = [notificationController removeObserverForName:notificationName];
+  BOOL result1 = [notificationController removeObserverForName:notificationName sender:nil];
   XCTAssertTrue(result1);
-  BOOL result2 = [notificationController removeObserverForName:notificationName];
+  BOOL result2 = [notificationController removeObserverForName:notificationName sender:nil];
   XCTAssertFalse(result2);
 }
 
