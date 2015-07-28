@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
                     sender:(nullable id)sender
                      queue:(nullable NSOperationQueue *)queue
                 usingBlock:(void (^)(NSNotification *note))block;
+- (BOOL)addObserverForName:(NSString *)name sender:(nullable id)sender selector:(SEL)notificationSelector;
 
 - (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender;
 

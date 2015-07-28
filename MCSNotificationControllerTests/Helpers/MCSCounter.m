@@ -29,4 +29,9 @@ NSString * const MCSCounterNotificationName = @"MCSCounterNotificationName";
   return self;
 }
 
+- (void)increment
+{
+  self.count++;
+}
+
 @end

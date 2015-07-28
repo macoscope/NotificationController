@@ -17,4 +17,6 @@ extern NSString * const MCSCounterNotificationName;
 
 @property (nonatomic, assign) NSInteger count;
 
+- (void)increment;
+
 @end

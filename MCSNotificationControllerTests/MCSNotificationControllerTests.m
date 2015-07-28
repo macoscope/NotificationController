@@ -12,6 +12,7 @@
 #import <libkern/OSAtomic.h>
 
 #import "MCSNotificationController.h"
+#import "MCSCounter.h"
 
 
 static NSString * const notificationName =  @"ArbitraryNotification";
@@ -76,6 +77,25 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 
   PostNotification();
   XCTAssertEqual(count, 1);
+}
+
+- (void)testWorksWithSelectorBasedObservers
+{
+  MCSCounter *counter = [MCSCounter new];
+
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:counter];
+  [notificationController addObserverForName:notificationName sender:nil selector:@selector(increment)];
+
+  PostNotification(nil, notificationName);
+  XCTAssertEqual(counter.count, 1);
+
+  PostNotification(nil, notificationName);
+  XCTAssertEqual(counter.count, 2);
+
+  [notificationController removeObserverForName:notificationName sender:nil];
+
+  PostNotification(nil, notificationName);
+  XCTAssertEqual(counter.count, 2);
 }
 
 

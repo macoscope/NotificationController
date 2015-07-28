@@ -80,6 +80,20 @@
   return observerAdded;
 }
 
+- (BOOL)addObserverForName:(NSString *)name sender:(nullable id)sender selector:(SEL)notificationSelector
+{
+  NSParameterAssert(notificationSelector);
+
+  __weak id observer = self.observer;
+  return [self addObserverForName:name sender:sender queue:nil usingBlock:^(NSNotification *note) {
+    // safe because no value is returned and retained
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [observer performSelector:notificationSelector withObject:note];
+#pragma clang diagnostic pop
+  }];
+}
+
 - (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender
 {
   __block BOOL observerRemoved = NO;
