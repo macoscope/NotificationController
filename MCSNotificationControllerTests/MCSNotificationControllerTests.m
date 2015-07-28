@@ -12,7 +12,6 @@
 #import <libkern/OSAtomic.h>
 
 #import "MCSNotificationController.h"
-#import "MCSCounter.h"
 
 
 static NSString * const notificationName =  @"ArbitraryNotification";
@@ -36,11 +35,14 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   [[NSNotificationCenter defaultCenter] postNotificationName:name object:object];
 }
 
+
 @interface MCSNotificationControllerTests : XCTestCase
 
 @end
 
 @implementation MCSNotificationControllerTests
+
+#pragma mark - Base
 
 - (void)testWorksCorrectlyInSimplestCase
 {
@@ -58,6 +60,26 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
 
   XCTAssertEqual(count, 1);
 }
+
+- (void)testWorksAfterObjectDeallocation
+{
+  __block NSInteger count = 0;
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
+    count++;
+  }];
+
+  PostNotification();
+  XCTAssertEqual(count, 1);
+
+  notificationController = nil;
+
+  PostNotification();
+  XCTAssertEqual(count, 1);
+}
+
+
+#pragma mark - Senders
 
 - (void)testWorksCorrectlyWithSenderObject
 {
@@ -77,7 +99,7 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   XCTAssertEqual(count, 1);
 }
 
-- (void)testIgnoresNotificationsWithADifferentSender
+- (void)testIgnoresNotificationsWithTwoDifferentSenders
 {
   __block NSInteger count = 0;
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
@@ -92,6 +114,9 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   PostNotification([NSObject new]);
   XCTAssertEqual(count, 1);
 }
+
+
+#pragma mark - Queues
 
 - (void)testWorksCorrectlyOnMainQueue
 {
@@ -133,22 +158,8 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   }];
 }
 
-- (void)testWorksAfterObjectDeallocation
-{
-  __block NSInteger count = 0;
-  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
-  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
-    count++;
-  }];
 
-  PostNotification();
-  XCTAssertEqual(count, 1);
-
-  notificationController = nil;
-
-  PostNotification();
-  XCTAssertEqual(count, 1);
-}
+#pragma mark - Thread safety
 
 - (void)testIsThreadSafe
 {
@@ -185,6 +196,9 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   }];
 }
 
+
+#pragma mark - Adding observers
+
 - (void)testInformsAboutSuccessOfAddingObserverWithoutSender
 {
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
@@ -205,6 +219,9 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   BOOL result2 = [notificationController addObserverForName:notificationName sender:sender queue:nil usingBlock:^(NSNotification *note) {}];
   XCTAssertFalse(result2);
 }
+
+
+#pragma mark - Removing observers
 
 - (void)testInformsAboutSuccessOfRemovingObserverWithoutSender
 {
