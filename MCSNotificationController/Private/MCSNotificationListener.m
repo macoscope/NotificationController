@@ -9,9 +9,8 @@
 #import "MCSNotificationListener.h"
 
 
-id<NSCopying> MCSNotificationKey(NSString *notificationName, __nullable id sender)
+id<NSCopying> MCSNotificationKey( NSString * __nullable notificationName, __nullable id sender)
 {
-  NSCParameterAssert(notificationName);
   return [NSString stringWithFormat:@"%@-%p", notificationName, sender];
 }
 

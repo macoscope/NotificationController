@@ -57,12 +57,11 @@
 
 #pragma mark - Public
 
-- (BOOL)addObserverForName:(NSString *)name
+- (BOOL)addObserverForName:(nullable NSString *)name
                     sender:(nullable id)sender
                      queue:(nullable NSOperationQueue *)queue
                 usingBlock:(void (^)(NSNotification *note))block;
 {
-  NSParameterAssert(name);
   NSParameterAssert(block);
 
   __block BOOL observerAdded = NO;
@@ -80,7 +79,9 @@
   return observerAdded;
 }
 
-- (BOOL)addObserverForName:(NSString *)name sender:(nullable id)sender selector:(SEL)notificationSelector
+- (BOOL)addObserverForName:(nullable NSString *)name
+                    sender:(nullable id)sender
+                  selector:(SEL)notificationSelector
 {
   NSParameterAssert(notificationSelector);
 
@@ -120,15 +121,30 @@
 
   // observer can be nil, because deallocation of an associated object happens after `dealloc` on the source object is called
   if (observer) {
-    __block MCSNotificationListener *listener = nil;
+    __block NSArray *listeners = nil;
 
     dispatch_sync(self.mapQueue, ^{
-      id<NSCopying> key = MCSNotificationKey(notification.name, notification.object);
-      listener = self.mapNotificationKeyToListener[key];
-    });
-    NSAssert2(listener, @"Listener for notification name: %@ with sender: %@ doesn't exist!", notification.name, notification.object);
+      NSArray *keys = @[MCSNotificationKey(notification.name, notification.object),
+                        MCSNotificationKey(nil, notification.object), // observer not caring for notification's name
+                        MCSNotificationKey(notification.name, nil), // observer not caring for sender object
+                        MCSNotificationKey(nil, nil)]; // observer not caring for both notification's name and sender object
+      NSSet *uniqueKeys = [NSSet setWithArray:keys];
 
-    [listener executeWithNotification:notification];
+      NSMutableArray *mutableListeners = [NSMutableArray new];
+      for (id<NSCopying> key in uniqueKeys) {
+        MCSNotificationListener *listener = self.mapNotificationKeyToListener[key];
+        if (listener) {
+          [mutableListeners addObject:listener];
+        }
+      }
+      listeners = [mutableListeners copy];
+    });
+
+    NSAssert2([listeners count] > 0, @"No listener for notification name: %@ with sender: %@ exists!", notification.name, notification.object);
+
+    for (MCSNotificationListener *listener in listeners) {
+      [listener executeWithNotification:notification];
+    }
   }
 }
 
