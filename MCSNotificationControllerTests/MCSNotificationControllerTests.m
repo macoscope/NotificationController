@@ -71,7 +71,7 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
   PostNotification(sender);
   XCTAssertEqual(count, 1);
 
-  [notificationController removeObserverForName:notificationName];
+  [notificationController removeObserverForName:notificationName sender:sender];
   PostNotification(sender);
 
   XCTAssertEqual(count, 1);
@@ -183,6 +183,50 @@ __attribute__((overloadable)) static void PostNotification(id object, NSString *
     XCTAssertEqual(count, accessCount);
     XCTAssertNil(error);
   }];
+}
+
+- (void)testInformsAboutSuccessOfAddingObserverWithoutSender
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+
+  BOOL result1 = [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+  XCTAssertTrue(result1);
+  BOOL result2 = [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+  XCTAssertFalse(result2);
+}
+
+- (void)testInformsAboutSuccessOfAddingObserverWithSender
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  id sender = [NSObject new];
+
+  BOOL result1 = [notificationController addObserverForName:notificationName sender:sender queue:nil usingBlock:^(NSNotification *note) {}];
+  XCTAssertTrue(result1);
+  BOOL result2 = [notificationController addObserverForName:notificationName sender:sender queue:nil usingBlock:^(NSNotification *note) {}];
+  XCTAssertFalse(result2);
+}
+
+- (void)testInformsAboutSuccessOfRemovingObserverWithoutSender
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:notificationName usingBlock:^(NSNotification *note) {}];
+
+  BOOL result1 = [notificationController removeObserverForName:notificationName];
+  XCTAssertTrue(result1);
+  BOOL result2 = [notificationController removeObserverForName:notificationName];
+  XCTAssertFalse(result2);
+}
+
+- (void)testInformsAboutSuccessOfRemovingObserverWithSender
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  id sender = [NSObject new];
+  [notificationController addObserverForName:notificationName sender:sender queue:nil usingBlock:^(NSNotification *note) {}];
+
+  BOOL result1 = [notificationController removeObserverForName:notificationName sender:sender];
+  XCTAssertTrue(result1);
+  BOOL result2 = [notificationController removeObserverForName:notificationName sender:sender];
+  XCTAssertFalse(result2);
 }
 
 @end

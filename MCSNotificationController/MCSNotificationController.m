@@ -57,16 +57,16 @@
 
 #pragma mark - Public
 
-- (void)addObserverForName:(NSString *)name
+- (BOOL)addObserverForName:(NSString *)name
                 usingBlock:(void (^)(NSNotification *note))block
 {
-  [self addObserverForName:name
-                    sender:nil
-                     queue:nil
-                usingBlock:block];
+  return [self addObserverForName:name
+                           sender:nil
+                            queue:nil
+                       usingBlock:block];
 }
 
-- (void)addObserverForName:(NSString *)name
+- (BOOL)addObserverForName:(NSString *)name
                     sender:(nullable id)sender
                      queue:(nullable NSOperationQueue *)queue
                 usingBlock:(void (^)(NSNotification *note))block;
@@ -74,28 +74,41 @@
   NSParameterAssert(name);
   NSParameterAssert(block);
 
-  dispatch_sync(self.mapQueue, ^{
-    id<NSCopying> key = MCSNotificationKey(name, sender);
-    NSAssert2(!self.mapNotificationKeyToListener[key], @"You shouldn't add observer for notification name: %@ with the same sender: %@ twice!", name, sender);
-    
-    self.mapNotificationKeyToListener[key] = [[MCSNotificationListener alloc] initWithQueue:queue block:block];
-    [self.notificationCenter addObserver:self selector:@selector(action:) name:name object:sender];
-  });
-}
+  __block BOOL observerAdded = NO;
 
-- (void)removeObserverForName:(NSString *)name
-{
-  [self removeObserverForName:name sender:nil];
-}
-
-- (void)removeObserverForName:(NSString *)name sender:(nullable id)sender
-{
   dispatch_sync(self.mapQueue, ^{
     id<NSCopying> key = MCSNotificationKey(name, sender);
     
-    [self.mapNotificationKeyToListener removeObjectForKey:key];
-    [self.notificationCenter removeObserver:self name:name object:sender];
+    if (!self.mapNotificationKeyToListener[key]) {
+      self.mapNotificationKeyToListener[key] = [[MCSNotificationListener alloc] initWithQueue:queue block:block];
+      [self.notificationCenter addObserver:self selector:@selector(action:) name:name object:sender];
+      observerAdded = YES;
+    }
   });
+
+  return observerAdded;
+}
+
+- (BOOL)removeObserverForName:(NSString *)name
+{
+  return [self removeObserverForName:name sender:nil];
+}
+
+- (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender
+{
+  __block BOOL observerRemoved = NO;
+
+  dispatch_sync(self.mapQueue, ^{
+    id<NSCopying> key = MCSNotificationKey(name, sender);
+
+    if (self.mapNotificationKeyToListener[key]) {
+      [self.mapNotificationKeyToListener removeObjectForKey:key];
+      [self.notificationCenter removeObserver:self name:name object:sender];
+      observerRemoved = YES;
+    }
+  });
+
+  return observerRemoved;
 }
 
 

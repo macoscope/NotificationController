@@ -30,15 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithObserver:(id)observer;
 - (instancetype)initWithObserver:(id)observer notificationCenter:(NSNotificationCenter *)notificationCenter NS_DESIGNATED_INITIALIZER;
 
-- (void)addObserverForName:(NSString *)name
+- (BOOL)addObserverForName:(NSString *)name
                 usingBlock:(void (^)(NSNotification *note))block;
-- (void)addObserverForName:(NSString *)name
+- (BOOL)addObserverForName:(NSString *)name
                     sender:(nullable id)sender
                      queue:(nullable NSOperationQueue *)queue
                 usingBlock:(void (^)(NSNotification *note))block;
 
-- (void)removeObserverForName:(NSString *)name;
-- (void)removeObserverForName:(NSString *)name sender:(nullable id)sender;
+- (BOOL)removeObserverForName:(NSString *)name;
+- (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender;
 
 @end
 
