@@ -84,6 +84,7 @@
                   selector:(SEL)notificationSelector
 {
   NSParameterAssert(notificationSelector);
+  NSAssert([self.observer respondsToSelector:notificationSelector], @"%@ does not recognize %@ selector", self.observer, NSStringFromSelector(notificationSelector));
 
   __weak id observer = self.observer;
   return [self addObserverForName:name sender:sender queue:nil usingBlock:^(NSNotification *note) {
