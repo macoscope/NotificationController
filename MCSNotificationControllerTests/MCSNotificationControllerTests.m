@@ -138,15 +138,19 @@ static void PostNotification( NSString * __nonnull name, id sender)
 - (void)testWorksAfterObjectDeallocation
 {
   __block NSInteger count = 0;
-  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
-  [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
-    count++;
-  }];
 
-  PostNotification(notificationName, nil);
-  XCTAssertEqual(count, 1);
+  // we want to force notificationController to get deallocated; autoreleasepool is used because there're some differences between iOS 8 and 9
+  @autoreleasepool {
+    MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+    [notificationController addObserverForName:notificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {
+      count++;
+    }];
+    
+    PostNotification(notificationName, nil);
+    XCTAssertEqual(count, 1);
 
-  notificationController = nil;
+    notificationController = nil;
+  }
 
   PostNotification(notificationName, nil);
   XCTAssertEqual(count, 1);
