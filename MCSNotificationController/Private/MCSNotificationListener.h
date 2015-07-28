@@ -16,7 +16,7 @@ id<NSCopying> MCSNotificationKey(NSString *notificationName, __nullable id sende
 @interface MCSNotificationListener : NSObject
 
 @property (nonatomic, strong, readonly, nullable) NSOperationQueue *queue;
-@property (nonatomic, strong, readonly) void (^block)(NSNotification *note);
+@property (nonatomic, copy, readonly) void (^block)(NSNotification *note);
 
 - (instancetype)initWithQueue:(nullable NSOperationQueue *)queue block:(void (^)(NSNotification *note))block;
 - (void)executeWithNotification:(NSNotification *)note;

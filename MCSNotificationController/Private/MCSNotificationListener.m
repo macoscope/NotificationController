@@ -24,7 +24,7 @@ id<NSCopying> MCSNotificationKey(NSString *notificationName, __nullable id sende
   self = [super init];
   if (self) {
     _queue = queue;
-    _block = block;
+    _block = [block copy];
   }
 
   return self;
