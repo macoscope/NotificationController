@@ -11,7 +11,11 @@
 
 id<NSCopying> MCSNotificationKey(NSString *__nullable notificationName, __nullable id sender)
 {
-  return [NSString stringWithFormat:@"%@-%p", notificationName, sender];
+  if (notificationName) {
+    return [NSString stringWithFormat:@"%@-%p", notificationName, sender];
+  } else {
+    return [NSString stringWithFormat:@"%p", sender];
+  }
 }
 
 
