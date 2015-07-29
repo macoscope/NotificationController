@@ -59,10 +59,13 @@ static NSString * const notificationName =  @"ArbitraryNotification";
 - (void)testExample
 {
   for (NSInteger i = 0; i < 5; i++) {
-    YourAttempt *attempt1 = [[YourAttempt alloc] init];
-    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
-    XCTAssertEqual(globalCounter, i + 1, @"Unexpected value for counter.");
-    XCTAssertEqual(1, attempt1.localCounter, @"Unexpected value for localCounter.");
+    // autoreleasepool is used to force attempt1 deallocation exactly at the end of each iteration
+    @autoreleasepool {
+      YourAttempt *attempt1 = [[YourAttempt alloc] init];
+      [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+      XCTAssertEqual(globalCounter, i + 1, @"Unexpected value for counter.");
+      XCTAssertEqual(1, attempt1.localCounter, @"Unexpected value for localCounter.");
+    }
   }
 }
 
