@@ -258,6 +258,18 @@ static void PostNotification(NSString *__nonnull name, id sender)
   }];
 }
 
+- (void)testIsThreadSafe2
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:kNotificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {}];
+
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    [notificationController removeObserverForName:kNotificationName sender:nil];
+  });
+
+  PostNotification(kNotificationName, nil);
+}
+
 
 #pragma mark - Adding observers
 

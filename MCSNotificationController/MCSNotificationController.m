@@ -142,8 +142,6 @@
       listeners = [mutableListeners copy];
     });
 
-    NSAssert2([listeners count] > 0, @"No listener for notification name: %@ with sender: %@ exists!", notification.name, notification.object);
-
     for (MCSNotificationListener *listener in listeners) {
       [listener executeWithNotification:notification];
     }
