@@ -92,7 +92,11 @@
     // safe because no value is returned and retained
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [observer performSelector:notificationSelector withObject:note];
+    if ([NSStringFromSelector(notificationSelector) rangeOfString:@":"].location == NSNotFound) {
+      [observer performSelector:notificationSelector];
+    } else {
+      [observer performSelector:notificationSelector withObject:note];
+    }
 #pragma clang diagnostic pop
   }];
 }
