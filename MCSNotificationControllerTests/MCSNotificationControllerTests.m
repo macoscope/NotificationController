@@ -106,10 +106,13 @@ static void PostNotification(NSString *__nonnull name, id sender)
   PostNotification(kNotificationName, nil);
   XCTAssertEqual(count, 1);
 
+  PostNotification(kDifferentNotificationName, sender);
+  XCTAssertEqual(count, 2);
+
   [notificationController removeObserverForName:nil sender:sender];
 
   PostNotification(kNotificationName, sender);
-  XCTAssertEqual(count, 1);
+  XCTAssertEqual(count, 2);
 }
 
 - (void)testWorksCorrectlyWithNilNotificationNameAndNilSender
