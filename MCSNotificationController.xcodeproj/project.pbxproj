@@ -211,6 +211,7 @@
 				A6BEA9301B667AEF00B79404 /* Frameworks */,
 				A6BEA9311B667AEF00B79404 /* Headers */,
 				A6BEA9321B667AEF00B79404 /* Resources */,
+				A60580031B68BC1900B85A7A /* Objective Clean */,
 			);
 			buildRules = (
 			);
@@ -247,6 +248,7 @@
 				A6BEA94E1B667AF800B79404 /* Frameworks */,
 				A6BEA94F1B667AF800B79404 /* Headers */,
 				A6BEA9501B667AF800B79404 /* Resources */,
+				A60580051B68BE5100B85A7A /* Objective Clean */,
 			);
 			buildRules = (
 			);
@@ -348,6 +350,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A60580031B68BC1900B85A7A /* Objective Clean */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective Clean";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
+		};
+		A60580051B68BE5100B85A7A /* Objective Clean */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective Clean";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6BEA92F1B667AEF00B79404 /* Sources */ = {
