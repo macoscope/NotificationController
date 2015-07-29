@@ -12,11 +12,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NSObject (MCSNotificationController)
 
 /// Lazy-loaded MCSNotificationController for use with any NSObject subclass.
 @property (nonatomic, strong) MCSNotificationController *mcs_notificationController;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

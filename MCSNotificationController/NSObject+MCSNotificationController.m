@@ -12,10 +12,11 @@
 #import <objc/runtime.h>
 
 
-static void *NSObjectNotificationControllerKey = &NSObjectNotificationControllerKey;
+static void * NSObjectNotificationControllerKey = &NSObjectNotificationControllerKey;
 
 
 @implementation NSObject (MCSNotificationController)
+
 @dynamic mcs_notificationController;
 
 - (MCSNotificationController *)mcs_notificationController

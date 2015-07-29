@@ -50,16 +50,18 @@ static NSString * const notificationName =  @"ArbitraryNotification";
 
 
 @interface MCSNotificationControllerDrewTests : XCTestCase
+
 @end
+
 
 @implementation MCSNotificationControllerDrewTests
 
 - (void)testExample
 {
-  for(int i =0; i < 5; i++) {
+  for (NSInteger i = 0; i < 5; i++) {
     YourAttempt *attempt1 = [[YourAttempt alloc] init];
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
-    XCTAssertEqual(globalCounter, i+1, @"Unexpected value for counter.");
+    XCTAssertEqual(globalCounter, i + 1, @"Unexpected value for counter.");
     XCTAssertEqual(1, attempt1.localCounter, @"Unexpected value for localCounter.");
   }
 }

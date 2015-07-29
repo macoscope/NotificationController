@@ -19,6 +19,7 @@ FOUNDATION_EXPORT const unsigned char MCSNotificationControllerVersionString[];
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 /**
  *  @abstract MCSNotificationController makes using NSNotificationCenter easier and less error-prone.
  */
@@ -91,5 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)removeObserverForName:(nullable NSString *)name sender:(nullable id)sender;
 
 @end
+
 
 NS_ASSUME_NONNULL_END
