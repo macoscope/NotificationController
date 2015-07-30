@@ -20,7 +20,6 @@ static NSString * const notificationName =  @"ArbitraryNotification";
 @interface YourAttempt : NSObject
 
 @property (nonatomic, assign) NSInteger localCounter;
-@property (nonatomic, strong) MCSNotificationController *notificationController;
 
 @end
 
