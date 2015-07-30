@@ -101,6 +101,19 @@
   }];
 }
 
+- (BOOL)removeObserver
+{
+  __block BOOL atLeastOneObserverRemoved = NO;
+
+  dispatch_sync(self.mapQueue, ^{
+    atLeastOneObserverRemoved = [self.mapNotificationKeyToListener allKeys].count > 0;
+    self.mapNotificationKeyToListener = [NSMutableDictionary new];
+    [self.notificationCenter removeObserver:self];
+  });
+
+  return atLeastOneObserverRemoved;
+}
+
 - (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender
 {
   __block BOOL observerRemoved = NO;

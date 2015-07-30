@@ -82,6 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
                   selector:(SEL)notificationSelector;
 
 /**
+ *  Removes the observer for all notifications.
+ *
+ *  @return YES if at least one observer was removed.
+ */
+- (BOOL)removeObserver;
+
+/**
  *  Removes the observer for the specified name and sender.
  *
  *  @param name The name of the notification from which to unregister the observer.

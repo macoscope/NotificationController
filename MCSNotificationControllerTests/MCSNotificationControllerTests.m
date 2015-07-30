@@ -180,6 +180,23 @@ static void PostNotification(NSString *__nonnull name, id sender)
   XCTAssertEqual(counter.count, 2);
 }
 
+- (void)testRemovalOfAllObserversWorksCorrectly
+{
+  __block NSInteger count = 0;
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:kNotificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {
+    count++;
+  }];
+
+  PostNotification(kNotificationName, nil);
+  XCTAssertEqual(count, 1);
+
+  [notificationController removeObserver];
+
+  PostNotification(kNotificationName, nil);
+  XCTAssertEqual(count, 1);
+}
+
 
 #pragma mark - Queues
 
@@ -320,6 +337,17 @@ static void PostNotification(NSString *__nonnull name, id sender)
   BOOL result1 = [notificationController removeObserverForName:kNotificationName sender:sender];
   XCTAssertTrue(result1);
   BOOL result2 = [notificationController removeObserverForName:kNotificationName sender:sender];
+  XCTAssertFalse(result2);
+}
+
+- (void)testInformsAboutSuccessOfRemovingAllObservers
+{
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:kNotificationName sender:nil queue:nil usingBlock:^(NSNotification *note) {}];
+
+  BOOL result1 = [notificationController removeObserver];
+  XCTAssertTrue(result1);
+  BOOL result2 = [notificationController removeObserver];
   XCTAssertFalse(result2);
 }
 
