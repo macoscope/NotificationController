@@ -11,6 +11,15 @@
 		A61C81D81B667C7800BA7A78 /* MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A61C81D91B667CB600BA7A78 /* NSObject+MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A61C81DA1B667CB700BA7A78 /* NSObject+MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6693AF71B6A3C0600C6B920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AF61B6A3C0600C6B920 /* main.m */; };
+		A6693AFA1B6A3C0600C6B920 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AF91B6A3C0600C6B920 /* AppDelegate.m */; };
+		A6693AFD1B6A3C0600C6B920 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AFC1B6A3C0600C6B920 /* ViewController.m */; };
+		A6693B001B6A3C0600C6B920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693AFE1B6A3C0600C6B920 /* Main.storyboard */; };
+		A6693B021B6A3C0600C6B920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6693B011B6A3C0600C6B920 /* Images.xcassets */; };
+		A6693B051B6A3C0600C6B920 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */; };
+		A6693B181B6A3DA100C6B920 /* MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */; };
+		A6693B191B6A3DA300C6B920 /* NSObject+MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */; };
+		A6693B1A1B6A3DA700C6B920 /* MCSNotificationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA9071B66659500B79404 /* MCSNotificationListener.m */; };
 		A6BEA93F1B667AEF00B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */; };
 		A6BEA95D1B667AF800B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */; };
 		A6BEA96B1B667B5200B79404 /* MCSNotificationControllerDrewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */; };
@@ -47,6 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6693AF21B6A3C0600C6B920 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6693AF51B6A3C0600C6B920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6693AF61B6A3C0600C6B920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A6693AF81B6A3C0600C6B920 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A6693AF91B6A3C0600C6B920 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A6693AFB1B6A3C0600C6B920 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A6693AFC1B6A3C0600C6B920 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A6693AFF1B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6693B011B6A3C0600C6B920 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A6693B041B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A6BEA8D41B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSNotificationController.h; sourceTree = "<group>"; };
 		A6BEA8E11B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A6693AEF1B6A3C0600C6B920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6BEA9301B667AEF00B79404 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,11 +126,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6693AF31B6A3C0600C6B920 /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				A6693AF81B6A3C0600C6B920 /* AppDelegate.h */,
+				A6693AF91B6A3C0600C6B920 /* AppDelegate.m */,
+				A6693AFB1B6A3C0600C6B920 /* ViewController.h */,
+				A6693AFC1B6A3C0600C6B920 /* ViewController.m */,
+				A6693AFE1B6A3C0600C6B920 /* Main.storyboard */,
+				A6693B011B6A3C0600C6B920 /* Images.xcassets */,
+				A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */,
+				A6693AF41B6A3C0600C6B920 /* Supporting Files */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		A6693AF41B6A3C0600C6B920 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6693AF51B6A3C0600C6B920 /* Info.plist */,
+				A6693AF61B6A3C0600C6B920 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A6BEA8C61B662E4800B79404 = {
 			isa = PBXGroup;
 			children = (
 				A6BEA8D21B662E4800B79404 /* MCSNotificationController */,
 				A6BEA8DF1B662E4800B79404 /* MCSNotificationControllerTests */,
+				A6693AF31B6A3C0600C6B920 /* ExampleApp */,
 				A6BEA8D11B662E4800B79404 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +167,7 @@
 				A6BEA93E1B667AEF00B79404 /* MCSNotificationController-iOSTests.xctest */,
 				A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */,
 				A6BEA95C1B667AF800B79404 /* MCSNotificationController-MacTests.xctest */,
+				A6693AF21B6A3C0600C6B920 /* ExampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +255,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A6693AF11B6A3C0600C6B920 /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6693B161B6A3C0600C6B920 /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				A6693AEE1B6A3C0600C6B920 /* Sources */,
+				A6693AEF1B6A3C0600C6B920 /* Frameworks */,
+				A6693AF01B6A3C0600C6B920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleApp;
+			productName = "Example-iOS";
+			productReference = A6693AF21B6A3C0600C6B920 /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A6BEA9331B667AEF00B79404 /* MCSNotificationController-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6BEA94B1B667AEF00B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-iOS" */;
@@ -286,6 +355,9 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Macoscope;
 				TargetAttributes = {
+					A6693AF11B6A3C0600C6B920 = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					A6BEA9331B667AEF00B79404 = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -306,6 +378,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A6BEA8C61B662E4800B79404;
 			productRefGroup = A6BEA8D11B662E4800B79404 /* Products */;
@@ -316,11 +389,22 @@
 				A6BEA93D1B667AEF00B79404 /* MCSNotificationController-iOSTests */,
 				A6BEA9511B667AF800B79404 /* MCSNotificationController-Mac */,
 				A6BEA95B1B667AF800B79404 /* MCSNotificationController-MacTests */,
+				A6693AF11B6A3C0600C6B920 /* ExampleApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A6693AF01B6A3C0600C6B920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6693B001B6A3C0600C6B920 /* Main.storyboard in Resources */,
+				A6693B051B6A3C0600C6B920 /* LaunchScreen.xib in Resources */,
+				A6693B021B6A3C0600C6B920 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6BEA9321B667AEF00B79404 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,6 +467,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A6693AEE1B6A3C0600C6B920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6693B181B6A3DA100C6B920 /* MCSNotificationController.m in Sources */,
+				A6693B191B6A3DA300C6B920 /* NSObject+MCSNotificationController.m in Sources */,
+				A6693B1A1B6A3DA700C6B920 /* MCSNotificationListener.m in Sources */,
+				A6693AFD1B6A3C0600C6B920 /* ViewController.m in Sources */,
+				A6693AFA1B6A3C0600C6B920 /* AppDelegate.m in Sources */,
+				A6693AF71B6A3C0600C6B920 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A6BEA92F1B667AEF00B79404 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,7 +537,50 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		A6693AFE1B6A3C0600C6B920 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6693AFF1B6A3C0600C6B920 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6693B041B6A3C0600C6B920 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		A6693B121B6A3C0600C6B920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6693B131B6A3C0600C6B920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A6BEA8E41B662E4800B79404 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -678,6 +818,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A6693B161B6A3C0600C6B920 /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6693B121B6A3C0600C6B920 /* Debug */,
+				A6693B131B6A3C0600C6B920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A6BEA8CA1B662E4800B79404 /* Build configuration list for PBXProject "MCSNotificationController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
