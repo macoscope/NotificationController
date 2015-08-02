@@ -180,6 +180,54 @@ static void PostNotification(NSString *__nonnull name, id sender)
   XCTAssertEqual(counter.count, 2);
 }
 
+
+#pragma mark - Unregistration
+
+- (void)testRemovalOfAllNotificationsForName
+{
+  __block NSInteger count = 0;
+  id sender1 = [NSObject new];
+  id sender2 = [NSObject new];
+
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:kNotificationName sender:sender1 queue:nil usingBlock:^(NSNotification *notification) {
+    count++;
+  }];
+  [notificationController addObserverForName:kNotificationName sender:sender2 queue:nil usingBlock:^(NSNotification *notification) {
+    count++;
+  }];
+
+  [notificationController removeObserverForName:kNotificationName sender:nil];
+
+  PostNotification(kNotificationName, sender1);
+  XCTAssertEqual(count, 0);
+
+  PostNotification(kNotificationName, sender2);
+  XCTAssertEqual(count, 0);
+}
+
+- (void)testRemovalOfAllNotificationsForSender
+{
+  __block NSInteger count = 0;
+  id sender = [NSObject new];
+
+  MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
+  [notificationController addObserverForName:kNotificationName sender:sender queue:nil usingBlock:^(NSNotification *notification) {
+    count++;
+  }];
+  [notificationController addObserverForName:kDifferentNotificationName sender:sender queue:nil usingBlock:^(NSNotification *notification) {
+    count++;
+  }];
+
+  [notificationController removeObserverForName:nil sender:sender];
+
+  PostNotification(kNotificationName, sender);
+  XCTAssertEqual(count, 0);
+
+  PostNotification(kDifferentNotificationName, sender);
+  XCTAssertEqual(count, 0);
+}
+
 - (void)testRemovalOfAllObserversWorksCorrectly
 {
   __block NSInteger count = 0;
@@ -188,13 +236,17 @@ static void PostNotification(NSString *__nonnull name, id sender)
     count++;
   }];
 
+  [notificationController addObserverForName:nil sender:nil queue:nil usingBlock:^(NSNotification *note) {
+    count++;
+  }];
+
   PostNotification(kNotificationName, nil);
-  XCTAssertEqual(count, 1);
+  XCTAssertEqual(count, 2);
 
   [notificationController removeObserver];
 
   PostNotification(kNotificationName, nil);
-  XCTAssertEqual(count, 1);
+  XCTAssertEqual(count, 2);
 }
 
 
