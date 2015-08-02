@@ -20,6 +20,11 @@
 		A6693B181B6A3DA100C6B920 /* MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */; };
 		A6693B191B6A3DA300C6B920 /* NSObject+MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */; };
 		A6693B1A1B6A3DA700C6B920 /* MCSNotificationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA9071B66659500B79404 /* MCSNotificationListener.m */; };
+		A66ABF1E1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */; };
+		A66ABF1F1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */; };
+		A66ABF201B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
+		A66ABF211B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
+		A66ABF221B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
 		A6BEA93F1B667AEF00B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */; };
 		A6BEA95D1B667AF800B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */; };
 		A6BEA96B1B667B5200B79404 /* MCSNotificationControllerDrewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */; };
@@ -66,6 +71,8 @@
 		A6693AFF1B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6693B011B6A3C0600C6B920 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A6693B041B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSNotificationKey.h; sourceTree = "<group>"; };
+		A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationKey.m; sourceTree = "<group>"; };
 		A6BEA8D41B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSNotificationController.h; sourceTree = "<group>"; };
 		A6BEA8E11B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,6 +225,8 @@
 			children = (
 				A6BEA9061B66659500B79404 /* MCSNotificationListener.h */,
 				A6BEA9071B66659500B79404 /* MCSNotificationListener.m */,
+				A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */,
+				A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 			files = (
 				A61C81D71B667C7800BA7A78 /* MCSNotificationController.h in Headers */,
 				A61C81D91B667CB600BA7A78 /* NSObject+MCSNotificationController.h in Headers */,
+				A66ABF1E1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +259,7 @@
 			files = (
 				A61C81D81B667C7800BA7A78 /* MCSNotificationController.h in Headers */,
 				A61C81DA1B667CB700BA7A78 /* NSObject+MCSNotificationController.h in Headers */,
+				A66ABF1F1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +487,7 @@
 				A6693B1A1B6A3DA700C6B920 /* MCSNotificationListener.m in Sources */,
 				A6693AFD1B6A3C0600C6B920 /* ViewController.m in Sources */,
 				A6693AFA1B6A3C0600C6B920 /* AppDelegate.m in Sources */,
+				A66ABF221B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
 				A6693AF71B6A3C0600C6B920 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +498,7 @@
 			files = (
 				A6BEA9731B667B6500B79404 /* NSObject+MCSNotificationController.m in Sources */,
 				A6BEA9711B667B6200B79404 /* MCSNotificationController.m in Sources */,
+				A66ABF201B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
 				A6BEA9761B667B7000B79404 /* MCSNotificationListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +520,7 @@
 			files = (
 				A6BEA9741B667B6600B79404 /* NSObject+MCSNotificationController.m in Sources */,
 				A6BEA9721B667B6200B79404 /* MCSNotificationController.m in Sources */,
+				A66ABF211B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
 				A6BEA9781B667B7100B79404 /* MCSNotificationListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

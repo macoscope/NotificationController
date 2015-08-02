@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-id<NSCopying> MCSNotificationKey( NSString * __nullable notificationName, __nullable id sender);
-
 
 @interface MCSNotificationListener : NSObject
 

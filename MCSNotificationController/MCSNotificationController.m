@@ -8,6 +8,7 @@
 
 #import "MCSNotificationController.h"
 #import "MCSNotificationListener.h"
+#import "MCSNotificationKey.h"
 
 
 @interface MCSNotificationController ()
@@ -45,6 +46,8 @@
     _notificationCenter = notificationCenter;
     _mapNotificationKeyToListener = [NSMutableDictionary new];
     _mapQueue = dispatch_queue_create("com.macoscope.notification-controller.map-queue", NULL);
+    // I don't like this but it leads to the safest implementation. Should probably be improved in the future if there're any issues with the performance.
+    [_notificationCenter addObserver:self selector:@selector(action:) name:nil object:nil];
   }
 
   return self;
@@ -66,13 +69,12 @@
   NSParameterAssert(block);
 
   __block BOOL observerAdded = NO;
-
+  
   dispatch_sync(self.mapQueue, ^{
-    id<NSCopying> key = MCSNotificationKey(name, sender);
+    id<NSCopying> key = [[MCSNotificationKey alloc] initWithNotificationName:name sender:sender];
     
     if (!self.mapNotificationKeyToListener[key]) {
       self.mapNotificationKeyToListener[key] = [[MCSNotificationListener alloc] initWithQueue:queue block:block];
-      [self.notificationCenter addObserver:self selector:@selector(action:) name:name object:sender];
       observerAdded = YES;
     }
   });
@@ -103,15 +105,7 @@
 
 - (BOOL)removeObserver
 {
-  __block BOOL atLeastOneObserverRemoved = NO;
-
-  dispatch_sync(self.mapQueue, ^{
-    atLeastOneObserverRemoved = [self.mapNotificationKeyToListener allKeys].count > 0;
-    self.mapNotificationKeyToListener = [NSMutableDictionary new];
-    [self.notificationCenter removeObserver:self];
-  });
-
-  return atLeastOneObserverRemoved;
+  return [self removeObserverForName:nil sender:nil];
 }
 
 - (BOOL)removeObserverForName:(NSString *)name sender:(nullable id)sender
@@ -119,12 +113,11 @@
   __block BOOL observerRemoved = NO;
 
   dispatch_sync(self.mapQueue, ^{
-    id<NSCopying> key = MCSNotificationKey(name, sender);
-
-    if (self.mapNotificationKeyToListener[key]) {
-      [self.mapNotificationKeyToListener removeObjectForKey:key];
-      [self.notificationCenter removeObserver:self name:name object:sender];
-      observerRemoved = YES;
+    for (MCSNotificationKey *key in self.mapNotificationKeyToListener.allKeys) {
+      if ([key matchedForRemovingByNotificationName:name sender:sender]) {
+        [self.mapNotificationKeyToListener removeObjectForKey:key];
+        observerRemoved = YES;
+      }
     }
   });
 
@@ -143,19 +136,13 @@
     __block NSArray *listeners = nil;
 
     dispatch_sync(self.mapQueue, ^{
-      NSArray *keys = @[MCSNotificationKey(notification.name, notification.object),
-                        MCSNotificationKey(nil, notification.object), // observer not caring for notification's name
-                        MCSNotificationKey(notification.name, nil), // observer not caring for sender object
-                        MCSNotificationKey(nil, nil)]; // observer not caring for both notification's name and sender object
-      NSSet *uniqueKeys = [NSSet setWithArray:keys];
-
       NSMutableArray *mutableListeners = [NSMutableArray new];
-      for (id<NSCopying> key in uniqueKeys) {
-        MCSNotificationListener *listener = self.mapNotificationKeyToListener[key];
-        if (listener) {
-          [mutableListeners addObject:listener];
+      for (MCSNotificationKey *key in self.mapNotificationKeyToListener.allKeys) {
+        if ([key matchedForSendingByNotificationName:notification.name sender:notification.object]) {
+          [mutableListeners addObject:self.mapNotificationKeyToListener[key]];
         }
       }
+
       listeners = [mutableListeners copy];
     });
 

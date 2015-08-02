@@ -9,16 +9,6 @@
 #import "MCSNotificationListener.h"
 
 
-id<NSCopying> MCSNotificationKey(NSString *__nullable notificationName, __nullable id sender)
-{
-  if (notificationName) {
-    return [NSString stringWithFormat:@"%@-%p", notificationName, sender];
-  } else {
-    return [NSString stringWithFormat:@"%p", sender];
-  }
-}
-
-
 @implementation MCSNotificationListener
 
 - (instancetype)initWithQueue:(nullable NSOperationQueue *)queue block:(void (^)(NSNotification *note))block
