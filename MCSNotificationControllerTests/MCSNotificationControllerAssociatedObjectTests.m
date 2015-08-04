@@ -32,11 +32,14 @@
 
 - (void)testAssociatedObjectWorksWhenObserverIsDeallocated
 {
-  __weak MCSNotificationController *notificationController = self.counter.mcs_notificationController;
-  self.counter = nil;
+  __weak MCSCounter *weakCounter = self.counter;
 
+  @autoreleasepool {
+    self.counter = nil;
+  }
+
+  XCTAssertNil(weakCounter);
   XCTAssertNoThrow([[NSNotificationCenter defaultCenter] postNotificationName:MCSCounterNotificationName object:nil]);
-  XCTAssertNotNil(notificationController); // notificationController isn't nil, because it's stored as associated object; it lives longer the the object "holding" it
 }
 
 @end
