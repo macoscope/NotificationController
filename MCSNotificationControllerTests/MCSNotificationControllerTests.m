@@ -246,6 +246,7 @@ static void PostNotification(NSString *__nonnull name, id sender)
   [notificationController removeObserver];
 
   PostNotification(kNotificationName, nil);
+  PostNotification(kDifferentNotificationName, nil);
   XCTAssertEqual(count, 2);
 }
 
@@ -335,7 +336,7 @@ static void PostNotification(NSString *__nonnull name, id sender)
   MCSNotificationController *notificationController = [[MCSNotificationController alloc] initWithObserver:self];
   [notificationController addObserverForName:kNotificationName sender:nil queue:nil usingBlock:^(NSNotification *notification) {}];
 
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+  dispatch_async(dispatch_get_global_queue(0, 0), ^{
     [notificationController removeObserverForName:kNotificationName sender:nil];
   });
 
