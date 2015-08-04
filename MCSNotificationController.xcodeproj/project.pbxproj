@@ -1,0 +1,881 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A61C81D71B667C7800BA7A78 /* MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A61C81D81B667C7800BA7A78 /* MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A61C81D91B667CB600BA7A78 /* NSObject+MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A61C81DA1B667CB700BA7A78 /* NSObject+MCSNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6693AF71B6A3C0600C6B920 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AF61B6A3C0600C6B920 /* main.m */; };
+		A6693AFA1B6A3C0600C6B920 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AF91B6A3C0600C6B920 /* AppDelegate.m */; };
+		A6693AFD1B6A3C0600C6B920 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693AFC1B6A3C0600C6B920 /* ViewController.m */; };
+		A6693B001B6A3C0600C6B920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693AFE1B6A3C0600C6B920 /* Main.storyboard */; };
+		A6693B021B6A3C0600C6B920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6693B011B6A3C0600C6B920 /* Images.xcassets */; };
+		A6693B051B6A3C0600C6B920 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */; };
+		A6693B181B6A3DA100C6B920 /* MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */; };
+		A6693B191B6A3DA300C6B920 /* NSObject+MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */; };
+		A66ABF1E1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */; };
+		A66ABF1F1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */ = {isa = PBXBuildFile; fileRef = A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */; };
+		A66ABF201B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
+		A66ABF211B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
+		A66ABF221B6E1DED00B794DC /* MCSNotificationKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */; };
+		A6BEA93F1B667AEF00B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */; };
+		A6BEA95D1B667AF800B79404 /* MCSNotificationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */; };
+		A6BEA96B1B667B5200B79404 /* MCSNotificationControllerDrewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */; };
+		A6BEA96C1B667B5300B79404 /* MCSNotificationControllerDrewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */; };
+		A6BEA96D1B667B5500B79404 /* MCSNotificationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8FE1B664CD800B79404 /* MCSNotificationControllerTests.m */; };
+		A6BEA96E1B667B5600B79404 /* MCSNotificationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8FE1B664CD800B79404 /* MCSNotificationControllerTests.m */; };
+		A6BEA96F1B667B5800B79404 /* MCSNotificationControllerAssociatedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA9001B6662EC00B79404 /* MCSNotificationControllerAssociatedObjectTests.m */; };
+		A6BEA9701B667B5900B79404 /* MCSNotificationControllerAssociatedObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA9001B6662EC00B79404 /* MCSNotificationControllerAssociatedObjectTests.m */; };
+		A6BEA9711B667B6200B79404 /* MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */; };
+		A6BEA9721B667B6200B79404 /* MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */; };
+		A6BEA9731B667B6500B79404 /* NSObject+MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */; };
+		A6BEA9741B667B6600B79404 /* NSObject+MCSNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */; };
+		A6BEA9791B667BD900B79404 /* MCSCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA90F1B6665F100B79404 /* MCSCounter.m */; };
+		A6BEA97A1B667BD900B79404 /* MCSCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BEA90F1B6665F100B79404 /* MCSCounter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6BEA9401B667AEF00B79404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6BEA8C71B662E4800B79404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6BEA9331B667AEF00B79404;
+			remoteInfo = "MCSNotificationController-iOS";
+		};
+		A6BEA95E1B667AF800B79404 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6BEA8C71B662E4800B79404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6BEA9511B667AF800B79404;
+			remoteInfo = "MCSNotificationController-Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A6693AF21B6A3C0600C6B920 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6693AF51B6A3C0600C6B920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6693AF61B6A3C0600C6B920 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A6693AF81B6A3C0600C6B920 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A6693AF91B6A3C0600C6B920 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A6693AFB1B6A3C0600C6B920 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A6693AFC1B6A3C0600C6B920 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A6693AFF1B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6693B011B6A3C0600C6B920 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A6693B041B6A3C0600C6B920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSNotificationKey.h; sourceTree = "<group>"; };
+		A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationKey.m; sourceTree = "<group>"; };
+		A6BEA8D41B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCSNotificationController.h; sourceTree = "<group>"; };
+		A6BEA8E11B662E4800B79404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationController.m; sourceTree = "<group>"; };
+		A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MCSNotificationController.h"; sourceTree = "<group>"; };
+		A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MCSNotificationController.m"; sourceTree = "<group>"; };
+		A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationControllerDrewTests.m; sourceTree = "<group>"; };
+		A6BEA8FE1B664CD800B79404 /* MCSNotificationControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationControllerTests.m; sourceTree = "<group>"; };
+		A6BEA9001B6662EC00B79404 /* MCSNotificationControllerAssociatedObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSNotificationControllerAssociatedObjectTests.m; sourceTree = "<group>"; };
+		A6BEA90E1B6665F100B79404 /* MCSCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSCounter.h; sourceTree = "<group>"; };
+		A6BEA90F1B6665F100B79404 /* MCSCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSCounter.m; sourceTree = "<group>"; };
+		A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MCSNotificationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BEA93E1B667AEF00B79404 /* MCSNotificationController-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MCSNotificationController-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MCSNotificationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BEA95C1B667AF800B79404 /* MCSNotificationController-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MCSNotificationController-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6693AEF1B6A3C0600C6B920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA9301B667AEF00B79404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA93B1B667AEF00B79404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA93F1B667AEF00B79404 /* MCSNotificationController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA94E1B667AF800B79404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA9591B667AF800B79404 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA95D1B667AF800B79404 /* MCSNotificationController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6693AF31B6A3C0600C6B920 /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				A6693AF81B6A3C0600C6B920 /* AppDelegate.h */,
+				A6693AF91B6A3C0600C6B920 /* AppDelegate.m */,
+				A6693AFB1B6A3C0600C6B920 /* ViewController.h */,
+				A6693AFC1B6A3C0600C6B920 /* ViewController.m */,
+				A6693AFE1B6A3C0600C6B920 /* Main.storyboard */,
+				A6693B011B6A3C0600C6B920 /* Images.xcassets */,
+				A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */,
+				A6693AF41B6A3C0600C6B920 /* Supporting Files */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		A6693AF41B6A3C0600C6B920 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6693AF51B6A3C0600C6B920 /* Info.plist */,
+				A6693AF61B6A3C0600C6B920 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6BEA8C61B662E4800B79404 = {
+			isa = PBXGroup;
+			children = (
+				A6BEA8D21B662E4800B79404 /* MCSNotificationController */,
+				A6BEA8DF1B662E4800B79404 /* MCSNotificationControllerTests */,
+				A6693AF31B6A3C0600C6B920 /* ExampleApp */,
+				A6BEA8D11B662E4800B79404 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A6BEA8D11B662E4800B79404 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */,
+				A6BEA93E1B667AEF00B79404 /* MCSNotificationController-iOSTests.xctest */,
+				A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */,
+				A6BEA95C1B667AF800B79404 /* MCSNotificationController-MacTests.xctest */,
+				A6693AF21B6A3C0600C6B920 /* ExampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6BEA8D21B662E4800B79404 /* MCSNotificationController */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA9051B66659500B79404 /* Private */,
+				A6BEA8D51B662E4800B79404 /* MCSNotificationController.h */,
+				A6BEA8EC1B6630FA00B79404 /* MCSNotificationController.m */,
+				A6BEA8EE1B66310C00B79404 /* NSObject+MCSNotificationController.h */,
+				A6BEA8EF1B66310C00B79404 /* NSObject+MCSNotificationController.m */,
+				A6BEA8D31B662E4800B79404 /* Supporting Files */,
+			);
+			path = MCSNotificationController;
+			sourceTree = "<group>";
+		};
+		A6BEA8D31B662E4800B79404 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA8D41B662E4800B79404 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6BEA8DF1B662E4800B79404 /* MCSNotificationControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA90D1B6665F100B79404 /* Helpers */,
+				A6BEA8F21B6631EA00B79404 /* MCSNotificationControllerDrewTests.m */,
+				A6BEA8FE1B664CD800B79404 /* MCSNotificationControllerTests.m */,
+				A6BEA9001B6662EC00B79404 /* MCSNotificationControllerAssociatedObjectTests.m */,
+				A6BEA8E01B662E4800B79404 /* Supporting Files */,
+			);
+			path = MCSNotificationControllerTests;
+			sourceTree = "<group>";
+		};
+		A6BEA8E01B662E4800B79404 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA8E11B662E4800B79404 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6BEA9051B66659500B79404 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				A66ABF1C1B6E1DED00B794DC /* MCSNotificationKey.h */,
+				A66ABF1D1B6E1DED00B794DC /* MCSNotificationKey.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		A6BEA90D1B6665F100B79404 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A6BEA90E1B6665F100B79404 /* MCSCounter.h */,
+				A6BEA90F1B6665F100B79404 /* MCSCounter.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A6BEA9311B667AEF00B79404 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61C81D71B667C7800BA7A78 /* MCSNotificationController.h in Headers */,
+				A61C81D91B667CB600BA7A78 /* NSObject+MCSNotificationController.h in Headers */,
+				A66ABF1E1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA94F1B667AF800B79404 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A61C81D81B667C7800BA7A78 /* MCSNotificationController.h in Headers */,
+				A61C81DA1B667CB700BA7A78 /* NSObject+MCSNotificationController.h in Headers */,
+				A66ABF1F1B6E1DED00B794DC /* MCSNotificationKey.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A6693AF11B6A3C0600C6B920 /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6693B161B6A3C0600C6B920 /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				A6693AEE1B6A3C0600C6B920 /* Sources */,
+				A6693AEF1B6A3C0600C6B920 /* Frameworks */,
+				A6693AF01B6A3C0600C6B920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleApp;
+			productName = "Example-iOS";
+			productReference = A6693AF21B6A3C0600C6B920 /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A6BEA9331B667AEF00B79404 /* MCSNotificationController-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BEA94B1B667AEF00B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-iOS" */;
+			buildPhases = (
+				A6BEA92F1B667AEF00B79404 /* Sources */,
+				A6BEA9301B667AEF00B79404 /* Frameworks */,
+				A6BEA9311B667AEF00B79404 /* Headers */,
+				A6BEA9321B667AEF00B79404 /* Resources */,
+				A60580031B68BC1900B85A7A /* Objective Clean */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MCSNotificationController-iOS";
+			productName = "MCSNotificationController-iOS";
+			productReference = A6BEA9341B667AEF00B79404 /* MCSNotificationController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A6BEA93D1B667AEF00B79404 /* MCSNotificationController-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BEA94C1B667AEF00B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-iOSTests" */;
+			buildPhases = (
+				A6BEA93A1B667AEF00B79404 /* Sources */,
+				A6BEA93B1B667AEF00B79404 /* Frameworks */,
+				A6BEA93C1B667AEF00B79404 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6BEA9411B667AEF00B79404 /* PBXTargetDependency */,
+			);
+			name = "MCSNotificationController-iOSTests";
+			productName = "MCSNotificationController-iOSTests";
+			productReference = A6BEA93E1B667AEF00B79404 /* MCSNotificationController-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A6BEA9511B667AF800B79404 /* MCSNotificationController-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BEA9651B667AF800B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-Mac" */;
+			buildPhases = (
+				A6BEA94D1B667AF800B79404 /* Sources */,
+				A6BEA94E1B667AF800B79404 /* Frameworks */,
+				A6BEA94F1B667AF800B79404 /* Headers */,
+				A6BEA9501B667AF800B79404 /* Resources */,
+				A60580051B68BE5100B85A7A /* Objective Clean */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MCSNotificationController-Mac";
+			productName = "MCSNotificationController-Mac";
+			productReference = A6BEA9521B667AF800B79404 /* MCSNotificationController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A6BEA95B1B667AF800B79404 /* MCSNotificationController-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6BEA9681B667AF800B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-MacTests" */;
+			buildPhases = (
+				A6BEA9581B667AF800B79404 /* Sources */,
+				A6BEA9591B667AF800B79404 /* Frameworks */,
+				A6BEA95A1B667AF800B79404 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6BEA95F1B667AF800B79404 /* PBXTargetDependency */,
+			);
+			name = "MCSNotificationController-MacTests";
+			productName = "MCSNotificationController-MacTests";
+			productReference = A6BEA95C1B667AF800B79404 /* MCSNotificationController-MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6BEA8C71B662E4800B79404 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Macoscope;
+				TargetAttributes = {
+					A6693AF11B6A3C0600C6B920 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A6BEA9331B667AEF00B79404 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A6BEA93D1B667AEF00B79404 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A6BEA9511B667AF800B79404 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					A6BEA95B1B667AF800B79404 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = A6BEA8CA1B662E4800B79404 /* Build configuration list for PBXProject "MCSNotificationController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6BEA8C61B662E4800B79404;
+			productRefGroup = A6BEA8D11B662E4800B79404 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6BEA9331B667AEF00B79404 /* MCSNotificationController-iOS */,
+				A6BEA93D1B667AEF00B79404 /* MCSNotificationController-iOSTests */,
+				A6BEA9511B667AF800B79404 /* MCSNotificationController-Mac */,
+				A6BEA95B1B667AF800B79404 /* MCSNotificationController-MacTests */,
+				A6693AF11B6A3C0600C6B920 /* ExampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6693AF01B6A3C0600C6B920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6693B001B6A3C0600C6B920 /* Main.storyboard in Resources */,
+				A6693B051B6A3C0600C6B920 /* LaunchScreen.xib in Resources */,
+				A6693B021B6A3C0600C6B920 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA9321B667AEF00B79404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA93C1B667AEF00B79404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA9501B667AF800B79404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA95A1B667AF800B79404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A60580031B68BC1900B85A7A /* Objective Clean */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective Clean";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
+		};
+		A60580051B68BE5100B85A7A /* Objective Clean */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Objective Clean";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6693AEE1B6A3C0600C6B920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6693B181B6A3DA100C6B920 /* MCSNotificationController.m in Sources */,
+				A6693B191B6A3DA300C6B920 /* NSObject+MCSNotificationController.m in Sources */,
+				A6693AFD1B6A3C0600C6B920 /* ViewController.m in Sources */,
+				A6693AFA1B6A3C0600C6B920 /* AppDelegate.m in Sources */,
+				A66ABF221B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
+				A6693AF71B6A3C0600C6B920 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA92F1B667AEF00B79404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA9731B667B6500B79404 /* NSObject+MCSNotificationController.m in Sources */,
+				A6BEA9711B667B6200B79404 /* MCSNotificationController.m in Sources */,
+				A66ABF201B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA93A1B667AEF00B79404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA96D1B667B5500B79404 /* MCSNotificationControllerTests.m in Sources */,
+				A6BEA96F1B667B5800B79404 /* MCSNotificationControllerAssociatedObjectTests.m in Sources */,
+				A6BEA9791B667BD900B79404 /* MCSCounter.m in Sources */,
+				A6BEA96B1B667B5200B79404 /* MCSNotificationControllerDrewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA94D1B667AF800B79404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA9741B667B6600B79404 /* NSObject+MCSNotificationController.m in Sources */,
+				A6BEA9721B667B6200B79404 /* MCSNotificationController.m in Sources */,
+				A66ABF211B6E1DED00B794DC /* MCSNotificationKey.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6BEA9581B667AF800B79404 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6BEA96E1B667B5600B79404 /* MCSNotificationControllerTests.m in Sources */,
+				A6BEA9701B667B5900B79404 /* MCSNotificationControllerAssociatedObjectTests.m in Sources */,
+				A6BEA97A1B667BD900B79404 /* MCSCounter.m in Sources */,
+				A6BEA96C1B667B5300B79404 /* MCSNotificationControllerDrewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6BEA9411B667AEF00B79404 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6BEA9331B667AEF00B79404 /* MCSNotificationController-iOS */;
+			targetProxy = A6BEA9401B667AEF00B79404 /* PBXContainerItemProxy */;
+		};
+		A6BEA95F1B667AF800B79404 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6BEA9511B667AF800B79404 /* MCSNotificationController-Mac */;
+			targetProxy = A6BEA95E1B667AF800B79404 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A6693AFE1B6A3C0600C6B920 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6693AFF1B6A3C0600C6B920 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A6693B031B6A3C0600C6B920 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6693B041B6A3C0600C6B920 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6693B121B6A3C0600C6B920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6693B131B6A3C0600C6B920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A6BEA8E41B662E4800B79404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A6BEA8E51B662E4800B79404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A6BEA9471B667AEF00B79404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = MCSNotificationController;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A6BEA9481B667AEF00B79404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MCSNotificationController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = MCSNotificationController;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A6BEA9491B667AEF00B79404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6BEA94A1B667AEF00B79404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A6BEA9661B667AF800B79404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = MCSNotificationController;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A6BEA9671B667AF800B79404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = MCSNotificationController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = MCSNotificationController;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A6BEA9691B667AF800B79404 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A6BEA96A1B667AF800B79404 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MCSNotificationControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6693B161B6A3C0600C6B920 /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6693B121B6A3C0600C6B920 /* Debug */,
+				A6693B131B6A3C0600C6B920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A6BEA8CA1B662E4800B79404 /* Build configuration list for PBXProject "MCSNotificationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BEA8E41B662E4800B79404 /* Debug */,
+				A6BEA8E51B662E4800B79404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6BEA94B1B667AEF00B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BEA9471B667AEF00B79404 /* Debug */,
+				A6BEA9481B667AEF00B79404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6BEA94C1B667AEF00B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BEA9491B667AEF00B79404 /* Debug */,
+				A6BEA94A1B667AEF00B79404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6BEA9651B667AF800B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BEA9661B667AF800B79404 /* Debug */,
+				A6BEA9671B667AF800B79404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6BEA9681B667AF800B79404 /* Build configuration list for PBXNativeTarget "MCSNotificationController-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6BEA9691B667AF800B79404 /* Debug */,
+				A6BEA96A1B667AF800B79404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6BEA8C71B662E4800B79404 /* Project object */;
+}
