@@ -97,12 +97,16 @@
   NSParameterAssert(notificationSelector);
   NSAssert([self.observer respondsToSelector:notificationSelector], @"%@ does not recognize %@ selector", self.observer, NSStringFromSelector(notificationSelector));
 
+  const NSInteger numberOfHiddenArguments = 2; // self and _cmd
+  NSInteger numberOfArguments = [[self.observer methodSignatureForSelector:notificationSelector] numberOfArguments] - numberOfHiddenArguments;
+  NSAssert(numberOfArguments < 2, @"Count of arguments for selector should be less than 2");
+
   __weak id observer = self.observer;
   return [self addObserverForName:name sender:sender queue:nil usingBlock:^(NSNotification *note) {
     // safe because no value is returned and retained
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    if ([NSStringFromSelector(notificationSelector) rangeOfString:@":"].location == NSNotFound) {
+    if (numberOfArguments == 0) {
       [observer performSelector:notificationSelector];
     } else {
       [observer performSelector:notificationSelector withObject:note];
