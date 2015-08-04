@@ -16,8 +16,9 @@
 
 - (nonnull instancetype)initWithNotificationName:(nullable NSString *)notificationName sender:(nullable id)sender
 {
+  self = [super init];
   if (self) {
-    _notificationName = notificationName;
+    _notificationName = [notificationName copy];
     _sender = sender;
   }
   
