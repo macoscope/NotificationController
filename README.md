@@ -29,10 +29,19 @@ self.notificationController = [[MCSNotificationController alloc] initWithObserve
 }];
 ```
 
-Above example assumes that there's a strongly held `notificationController` property on that object.
+or
+
+```swift
+self.notificationController = MCSNotificationController(observer: self)
+self.notificationController?.addObserverForName(name, sender: nil, queue: nil, usingBlock: {  [weak self] (_) -> Void in
+    self.doSomething()
+})
+```
+
+Above examples assume that there's a strongly held `notificationController` property on that object.
 Deregistration happens automatically on the controller's deallocation.
 
-There's also a category on `NSObject` that creates a lazy-loaded `mcs_notificationController` property for you. So, above example can get even shorter:
+There's also a category on `NSObject` that creates a lazy-loaded `mcs_notificationController` property for you. So, Objective-C example can get even shorter:
 
 ```obj-c
 __weak typeof(self) weakSelf = self;
