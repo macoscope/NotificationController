@@ -1,6 +1,6 @@
 # NotificationController
 
-<!--[![Build Status](https://travis-ci.org/macoscope/NotificationController.svg?branch=master)][travis]-->
+[![Build Status](https://travis-ci.org/macoscope/NotificationController.svg?branch=master)][travis]
 <!--[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)][carthage]-->
 
 NotificationController provides a better way to use `NSNotificationCenter` on iOS and Mac.
