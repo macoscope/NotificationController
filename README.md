@@ -11,10 +11,11 @@ Features:
 - prevention from registration for the same notification more than once
 - automatic unregistration from notifications in `-dealloc`
 
-<!-- We encourage you to learn about the underlying implementation from the [blog post][] (TODO: add link). -->
+We encourage you to learn about the underlying implementation from the [blog post][].
 
   [travis]: https://travis-ci.org/macoscope/NotificationController
   [carthage]: https://github.com/Carthage/Carthage
+  [blog post]:  http://macoscope.com/blog/improving-notification-center/
 
 ## Usage
 
