@@ -68,9 +68,9 @@ Install with [Carthage]:
 
     github "macoscope/NotificationController"
 
-<!-- or with [CocoaPods]:
+or with [CocoaPods]:
 
-    pod "NotificationController" -->
+    pod "NotificationController"
 
 Then import with: `#import <NotificationController/MCSNotificationController.h>`
 
